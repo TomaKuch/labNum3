@@ -1,6 +1,8 @@
 <div class="card m-3">
         <h5 class="card-header">Registration Form</h5>
         <div class="card-body">
+        <mat-sidenav-container>
+            <mat-sidenav-content>
                 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                         <div class="form-row">
                             <div class="form-group col">
@@ -58,40 +60,44 @@
                             </div>
                         </div>
                         <div class="form-group form-check">
-                            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
-                            <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                                <mat-checkbox>Accept Terms & Conditions</mat-checkbox>
                             <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-primary mr-1" type="sumbit">Register</button>
-                            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                            <button mat-raised-button color="primary">Register</button>
+                            <button mat-raised-button  color="warm" (click)="onReset()">Cancel</button>
                         </div>
                 </form>
+            </mat-sidenav-content>
+        </mat-sidenav-container>    
                 
-                <div class="d-flex justify-content-between">
-                                <h2>Users</h2>
-                              </div>
-                              <div class="mt-4 table-responsive">
-                                  <table class= "table table-striped table-sm">
-                                      <thead>
-                                              <tr>
-                                                      <th>#</th>
-                                                      <th>Title</th>
-                                                      <th>First Name</th>
-                                                      <th>Last Name</th>
-                                                      <th>Email</th>
-                                              </tr>
-                                      </thead>
-                                      <tbody>
-                                              <tr *ngFor = "let user of users; let id = index">
-                                                      <td>{{id}}</td>
-                                                      <td>{{user.title}}</td>
-                                                      <td>{{user.firstName}}</td>
-                                                      <td>{{user.lastName}}</td>
-                                                      <td>{{user.email}}</td>
-                                              </tr>
-                                      </tbody>
-                                    </table>
-                              </div>
         </div>
+</div>
+
+<div class="card m-3">
+        <h5 class="card-header">Users</h5>
+        <div class="card-body">
+      <div class="mt-4 table-responsive">
+          <table class= "table table-striped table-sm">
+              <thead>
+                      <tr>
+                              <th>#</th>
+                              <th>Title</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Email</th>
+                      </tr>
+              </thead>
+              <tbody>
+                      <tr *ngFor = "let user of users; let id = index">
+                              <td>{{id}}</td>
+                              <td>{{user.title}}</td>
+                              <td>{{user.firstName}}</td>
+                              <td>{{user.lastName}}</td>
+                              <td>{{user.email}}</td>
+                      </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
 </div>

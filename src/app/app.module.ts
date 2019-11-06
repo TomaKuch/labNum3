@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +10,11 @@ import { WeatherpageComponent } from './weatherpage/weatherpage.component';
 import { WeatherService } from './weather.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingComponent } from './setting/setting.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule} from '@angular/core';
+import { MaterialModule } from './homepage/material.module';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatCheckboxModule, MatListModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,12 +29,18 @@ import { SettingComponent } from './setting/setting.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [
     UserService,
     WeatherService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
